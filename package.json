@@ -1,7 +1,8 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "name": "app",
   "scripts": {
-    "start": "expo start",
+    "start": " rm -rf .expo && expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",

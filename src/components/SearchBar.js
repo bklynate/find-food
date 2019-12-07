@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     marginTop: 15,
     flexDirection: 'row',
+    marginBottom: 15,
   },
 
   featherIcon: {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from 'app/src/components/SearchBar';
 import useResults from 'app/src/hooks/useYelpSearch';
 import SearchResultsList from 'app/src/components/SearchResultsList';
@@ -33,21 +33,23 @@ const SearchFoodScreen = () => {
   }, []);
 
   return (
-    <View>
+    <>
       <SearchBar
         searchTerm={searchTerm}
         onSearchTermChange={setSearchTerm}
         onSearchTermSubmit={() => searchAPI(searchTerm)}
       />
-      {error ? (
-        <Text>Something went wrong... please try again</Text>
-      ) : (
-        <Text>We have found {searchResults.length} search results.</Text>
+      {Boolean(error) && (
+        <Text style={{ marginLeft: 15, marginBottom: 15 }}>
+          Something went wrong... please try again
+        </Text>
       )}
-      <SearchResultsList title='Cheap Eats' searchResults={cheapEats} />
-      <SearchResultsList title='Moderate Eats' searchResults={moderateEats} />
-      <SearchResultsList title='Expensive Eats' searchResults={expensiveEats} />
-    </View>
+      <ScrollView>
+        <SearchResultsList title='Cheap Eats' searchResults={cheapEats} />
+        <SearchResultsList title='Moderate Eats' searchResults={moderateEats} />
+        <SearchResultsList title='Expensive Eats' searchResults={expensiveEats} />
+      </ScrollView>
+    </>
   );
 };
 

@@ -5,6 +5,9 @@ import SearchResult from 'app/src/components/SearchResult';
 
 const SearchResultsList = props => {
   const { title, searchResults, navigation } = props;
+
+  if (!searchResults.length) return null;
+
   const { navigate } = navigation;
   return (
     <View style={{ marginBottom: 10 }}>

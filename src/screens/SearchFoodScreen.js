@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { Text, StyleSheet, ScrollView } from 'react-native';
 import SearchBar from 'app/src/components/SearchBar';
-import useResults from 'app/src/hooks/useYelpSearch';
+import useYelpSearchAPI from 'app/src/hooks/useYelpSearch';
 import SearchResultsList from 'app/src/components/SearchResultsList';
 
 const SearchFoodScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchAPI, searchResults, error] = useResults();
-
+  const [searchAPI, searchResults, error] = useYelpSearchAPI();
   const cheapEats = searchResults.reduce((resolved, result) => {
     if (!result.price || result.price.length > 1) return resolved;
 

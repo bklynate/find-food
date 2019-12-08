@@ -3,14 +3,15 @@ import { View, Text, Image, StyleSheet } from 'react-native';
 
 const SearchResult = props => {
   const { searchResult } = props;
-  const { image_url, name, rating, review_count, reviews } = searchResult;
+  const { image_url, name, rating, review_count } = searchResult;
 
   return (
     <View style={styles.container}>
       <Image style={styles.image} source={{ uri: image_url }} />
       <Text style={styles.name}>{name}</Text>
-      <Text>{rating} - stars</Text>
-      <Text>{review_count}, reviews</Text>
+      <Text>
+        {rating} - stars, {review_count} reviews
+      </Text>
     </View>
   );
 };

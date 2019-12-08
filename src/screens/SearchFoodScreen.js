@@ -7,6 +7,7 @@ import SearchResultsList from 'app/src/components/SearchResultsList';
 const SearchFoodScreen = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchAPI, searchResults, error] = useYelpSearchAPI();
+
   const cheapEats = searchResults.reduce((resolved, result) => {
     if (!result.price || result.price.length > 1) return resolved;
 
